@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gembarrett/ip-copyright-search/issues"
   },
-  "homepage": "https://github.com/gembarrett/ip-copyright-search#readme"
+  "homepage": "https://github.com/gembarrett/ip-copyright-search#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
 }
