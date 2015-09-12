@@ -1,0 +1,19 @@
+{
+  "name": "ip-copyright-search",
+  "version": "1.0.0",
+  "description": "Search engine for finding protection status of intellectual property",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gembarrett/ip-copyright-search.git"
+  },
+  "author": "Gem Barrett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gembarrett/ip-copyright-search/issues"
+  },
+  "homepage": "https://github.com/gembarrett/ip-copyright-search#readme"
+}
