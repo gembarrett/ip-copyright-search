@@ -2,7 +2,7 @@
   "name": "ip-copyright-search",
   "version": "1.0.0",
   "description": "Search engine for finding protection status of intellectual property",
-  "main": "index.html",
+  "main": "dest/index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/gembarrett/ip-copyright-search#readme",
   "devDependencies": {
-    "grunt": "^0.4.5"
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-watch": "^0.6.1"
   }
 }
