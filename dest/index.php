@@ -17,17 +17,23 @@ $resp = curl_exec($curl);
 // Close curl request
 curl_close($curl);
 
+// convert xml into json object
 $xml = simplexml_load_string($resp);
 $json = json_encode($xml);
 $array = json_decode($json,TRUE);
 
+// grab the only bit we're interested in
 $entries = $array['entry'];
 
+// for each bit of the thing we're interested in
 foreach($array['entry'] AS $entry) {
+  // grab the entry's id in case citation needed
+  $stuff = explode('/', $entry['id']);
+  echo $stuff[4];
+  // print out the name and summary
   echo "<h3>
         {$entry['author']['name']}
         </h3>
-        <p>{$entry['id']}</p>
         <p>{$entry['summary']}</p>";
 }
 
