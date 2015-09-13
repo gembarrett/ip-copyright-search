@@ -39,10 +39,10 @@ function showSearchWorks($searchResults) {
 	}
 }
 
-//Search by indexed work fields:
+//Search by passed query:
 $params = array(
 	'component' => 'search.byquery',
-	'query' => 'Creative Commons music',
+	'query' => 'Jimi Hendrix',
 );
 
 $results = search($params);
