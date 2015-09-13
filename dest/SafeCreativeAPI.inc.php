@@ -124,7 +124,6 @@ function call($params=array(),$apiUrl=API_URL) {
 	$url=$apiUrl.$reqParams;
 	debugCall($url,$reqParams);
 	$result = @file_get_contents($url) or die("Can not connect or read failed");
-	$result = simplexml_load_string($result);
 	return  $result;
 }
 ?>

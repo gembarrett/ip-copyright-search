@@ -22,29 +22,54 @@
 
 include("SafeCreativeAPI.inc.php");
 
-define("DEBUG",true);
+define("DEBUG",false);
 
 function showSearchWorks($searchResults) {
-	//debug($results);
-	if($searchResults && $searchResults->recordtotal) {
-		msg("Total pages: ".$searchResults->pagetotal);
-		msg("Total results: ".$searchResults->recordtotal);
-		foreach($searchResults->list->work as $work) {
-			$workUrl = $work->{'human-url'};
-			$thumbnail = $work->thumbnail;
-			msg("<a href=\"$workUrl\"><img src=\"$thumbnail\" title=\"".$work->title."\" align=\"top\"></a> <a href=\"$workUrl\">".$work->title."</a>");
-		}
-	} else {
-		msg("No search results available");
+	$array = json_decode($searchResults,TRUE);
+
+	// grab the only bit we're interested in
+	$entries = $array['listpage']['list'];
+
+	// check we have results
+	
+	
+	// for each bit of the thing we're interested in
+	foreach($array['entry'] AS $entry) {
+	  // grab the entry's id in case citation needed
+	  $stuff = explode('/', $entry['id']);
+	  echo $stuff[4];
+	  // print out the name and summary
+	  echo "<h3>
+	        {$entry['title']} - 
+	        {$entry['author']['name']}
+	        </h3>
+	        <p>{$entry['summary']}</p>";
 	}
+
+	// debug($results);
+	echo $array['listpage']['list'][0]['title'];
+	// if($searchResults && $searchResults[0]recordtotal) {
+	// 	// msg("Total pages: ".$searchResults->pagetotal);
+	// 	// msg("Total results: ".$searchResults->recordtotal);
+	// 	foreach($searchResults->list->work as $work) {
+	// 		echo $searchResults;
+	// 		// $workUrl = $work->{'human-url'};
+	// 		// $thumbnail = $work->thumbnail;
+	// 		// msg("<a href=\"$workUrl\"><img src=\"$thumbnail\" title=\"".$work->title."\" align=\"top\"></a> <a href=\"$workUrl\">".$work->title."</a>");
+	// 	}
+	// } else {
+	// 	msg("No search results available");
+	// }
 }
 
 $query = $_GET['search-keywords'];
+
 
 //Search by passed query:
 $params = array(
 	'component' => 'search.byquery',
 	'query' => $query,
+	'format'=> 'json'
 );
 
 $results = search($params);
