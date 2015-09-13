@@ -1,10 +1,10 @@
 <?php 
+$query = $_GET['search-keywords'];
 
 // Initialise curl resource
 $curl = curl_init();
-$safeCreativeKey = "6u4m0k0kd3yjx2ez58rc9jx5i";
 $worldcatKey = 'l45E9GwC2Yex8qKqXdxkNznjn1mVGdG2ZjGLcaGxl9JBGX0AacC2aWmrGLXQkqF0nYvnk0BmVnSOMwUs';
-$worldcatCatalogRequest = 'http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q=APIs&wskey='.$worldcatKey;
+$worldcatCatalogRequest = 'http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q='.$query.'&wskey='.$worldcatKey;
 $worldcatCitationRequest = 'http://www.worldcat.org/webservices/catalog/content/citations/'.$worldcatCatalogNo.'?wskey='.$worldcatKey;
 
 // set options

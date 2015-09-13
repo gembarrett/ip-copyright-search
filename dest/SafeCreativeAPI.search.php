@@ -39,10 +39,12 @@ function showSearchWorks($searchResults) {
 	}
 }
 
+$query = $_GET['search-keywords'];
+
 //Search by passed query:
 $params = array(
 	'component' => 'search.byquery',
-	'query' => 'Jimi Hendrix',
+	'query' => $query,
 );
 
 $results = search($params);
