@@ -32,6 +32,7 @@ foreach($array['entry'] AS $entry) {
   echo $stuff[4];
   // print out the name and summary
   echo "<h3>
+        {$entry['title']} - 
         {$entry['author']['name']}
         </h3>
         <p>{$entry['summary']}</p>";

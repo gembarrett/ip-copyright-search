@@ -1,5 +1,6 @@
 <html>
 <head>
+  <link href='main.css' rel='stylesheet' />
 </head>
 <body>
   <form action='search.php' method='GET'>
