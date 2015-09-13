@@ -20,8 +20,8 @@ define("MANAGE_ENDPOINT","/api-ui/authkey.edit?");
 define("ACCESS_LEVEL_GET","GET"); //Read only access
 define("ACCESS_LEVEL_ADD","ADD"); //R/W Access
 define("ACCESS_LEVEL_MANAGE","MANAGE"); //Full access
-define("API_URL","http://api.safecreative.org");
-define("API_SEARCH_URL","http://api-search.safecreative.org");
+define("API_URL","https://search.safecreative.org");
+define("API_SEARCH_URL","https://search.safecreative.org");
 
 if(!defined("API_SEARCH_URL") && defined("API_URL")) {
 	define("API_SEARCH_URL",API_URL);

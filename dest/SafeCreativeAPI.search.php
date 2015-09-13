@@ -41,21 +41,11 @@ function showSearchWorks($searchResults) {
 
 //Search by indexed work fields:
 $params = array(
-	"component" => "search.byfields",
-	//"page" => 1,
-	"field1" => "workType.code" , "value1" => "photo",
-	//"field2" => "allowDownload" , "value2" => "true"
+	'component' => 'search.byquery',
+	'query' => 'Creative Commons music',
 );
 
 $results = search($params);
 showSearchWorks($results);
 
-//Direct search by hash (use main api servers instead of search servers):
-$params = array(
-	"component" => "search.byhash",
-	"md5" => "22f5ce4f4bb5f49625b664927d5854d8"
-);
 
-$results = search($params,API_URL);
-showSearchWorks($results);
-?>
