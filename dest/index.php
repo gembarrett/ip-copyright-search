@@ -21,8 +21,14 @@ $xml = simplexml_load_string($resp);
 $json = json_encode($xml);
 $array = json_decode($json,TRUE);
 
-foreach($array AS $prop => $val) {
-  echo '<br/>'.$prop.' - '.$val;
+$entries = $array['entry'];
+
+foreach($array['entry'] AS $entry) {
+  echo "<h3>
+        {$entry['author']['name']}
+        </h3>
+        <p>{$entry['id']}</p>
+        <p>{$entry['summary']}</p>";
 }
 
 ?> 
