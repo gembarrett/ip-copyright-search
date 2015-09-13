@@ -27,27 +27,18 @@ define("DEBUG",false);
 function showSearchWorks($searchResults) {
 	$array = json_decode($searchResults,TRUE);
 
-	// grab the only bit we're interested in
-	$entries = $array['listpage']['list'];
-
-	// check we have results
-	
-	
-	// for each bit of the thing we're interested in
-	foreach($array['entry'] AS $entry) {
-	  // grab the entry's id in case citation needed
-	  $stuff = explode('/', $entry['id']);
-	  echo $stuff[4];
-	  // print out the name and summary
-	  echo "<h3>
-	        {$entry['title']} - 
-	        {$entry['author']['name']}
-	        </h3>
-	        <p>{$entry['summary']}</p>";
+	if($array['listpage']['recordtotal'] != 0) {
+		$entries = $array['listpage']['list'];
+		foreach ($entries AS $entry) {
+			echo "{$entry['title']}<br />";
+		}
+	} else {
+		echo "no results";
 	}
 
 	// debug($results);
-	echo $array['listpage']['list'][0]['title'];
+	// echo $entries[0]['title'];
+	// echo $entries['listpage']['list'][0]['title'];
 	// if($searchResults && $searchResults[0]recordtotal) {
 	// 	// msg("Total pages: ".$searchResults->pagetotal);
 	// 	// msg("Total results: ".$searchResults->recordtotal);
