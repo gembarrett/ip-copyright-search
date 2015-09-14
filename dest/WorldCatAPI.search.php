@@ -1,11 +1,10 @@
 <?php 
 $query = $_GET['search-keywords'];
-
+$urlReadyQuery = urlencode($query);
 // Initialise curl resource
 $curl = curl_init();
 $worldcatKey = 'l45E9GwC2Yex8qKqXdxkNznjn1mVGdG2ZjGLcaGxl9JBGX0AacC2aWmrGLXQkqF0nYvnk0BmVnSOMwUs';
-$worldcatCatalogRequest = 'http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q='.$query.'&wskey='.$worldcatKey;
-$worldcatCitationRequest = 'http://www.worldcat.org/webservices/catalog/content/citations/'.$worldcatCatalogNo.'?wskey='.$worldcatKey;
+$worldcatCatalogRequest = 'http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q='.$urlReadyQuery.'&wskey='.$worldcatKey;
 
 // set options
 curl_setopt_array($curl, array(
@@ -34,7 +33,7 @@ foreach($array['entry'] AS $entry) {
   $worldcatCatalogNo = $IPid[4];
   $xmlCitation = file_get_contents("http://www.worldcat.org/webservices/catalog/content/citations/{$worldcatCatalogNo}?wskey={$worldcatKey}");
   // print out the name and summary
-  echo "<div data-ipid='{$IPid[4]}' data-title='$title'>
+  echo "<div data-ipid='{$IPid[4]}' data-a='{$author}'>
         <h3>$title</h3>
         </h3>
         <p>$author</p>

@@ -31,18 +31,23 @@ function showSearchWorks($searchResults) {
 		$entries = $array['listpage']['list'];
 		foreach ($entries AS $entry) {
 			$title = $entry['title'];
+			$license = "<a href='{$entry['license']['code']}'>
+									<p>{$entry['license']['name']}</p></a>";
 			if(!($entry['authors'][0]['name'])) {
 				$rightsHolder = $entry['rights-holders'][0]['name'];
-				echo "<div data-ipid='{$entry['human-url']}' data-title='$title' data-rh='$rightsHolder'>
+				echo "<div data-ipid='{$entry['human-url']}' data-rh='$rightsHolder'>
 							<h3>$title</h3>
 							<p>$rightsHolder</p>
+							<p>$license</p>
 							<button>Citation</button>
+							<div class='citation'></div>
 							</div>";				
 			} else {
 				$author = $entry['authors'][0]['name'];
-				echo "<div data-ipid='{$entry['human-url']}' data-title='$title' data-a='$author'>
+				echo "<div data-ipid='{$entry['human-url']}' data-a='$author'>
 							<h3>$title</h3>
 							<p>$author</p>
+							<p>$license</p>
 							<button>Citation</button>
 							<div class='citation'></div>
 							</div>";
