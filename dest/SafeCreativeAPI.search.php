@@ -22,26 +22,25 @@
 
 include("SafeCreativeAPI.inc.php");
 
+$query = $_GET['search-keywords'];
 
 function showSearchWorks($searchResults) {
 	$array = json_decode($searchResults,TRUE);
-	echo "<h2>Results from Safe Creative</h2>";
 	if($array['listpage']['recordtotal'] != 0) {
 		$entries = $array['listpage']['list'];
 		foreach ($entries AS $entry) {
-			$title = $entry['title'];
 			$license = "<a href='{$entry['license']['human-url']}'>
-									<p>{$entry['license']['name']}</p></a>";
+									{$entry['license']['name']}</a>";
 			$licenseURL = $entry['human-url'];
+			$title = "<a href=\"$licenseURL\" target=\"_blank\">{$entry['title']}</a>";
 			$shortLicenseURL = $entry['license']['human-url'];
 			$shortLicense = $entry['license']['shortname'];
 			if(!($entry['authors'][0]['name'])) {
 				$rightsHolder = $entry['rights-holders'][0]['name'];
-				$xmlCitation = "<p><span><a href=\"$licenseURL\" target=\"_blank\">$title</a></span> - <span><a href=\"$shortLicenseURL\" target=\"_blank\">$shortLicense</a></span> - <span>$rightsHolder</span></p>";
-				print "<div class='result-entry' data-ipid='{$entry['human-url']}' data-rh='$rightsHolder'>
-							<h3>$title</h3>
-							<p>$rightsHolder</p>
-							<p>$license</p>
+				$xmlCitation = "<p>$title - <a href=\"$shortLicenseURL\" target=\"_blank\">$shortLicense</a> - $rightsHolder</p>";
+				print "<div class='result-entry' data-ipid='{$entry['human-url']}' data-a='$rightsHolder' data-category='{$entry['worktypegroup']['code']}'>
+							<h4>$title</h4>
+							<p>$rightsHolder - $license</p>
 							<button>Attribution</button>
 							<div class='citation'>
 							<input type='text' class='citationCopyText' value='{$xmlCitation}' readonly='readonly'>
@@ -50,11 +49,10 @@ function showSearchWorks($searchResults) {
 							</div>";				
 			} else {
 				$author = $entry['authors'][0]['name'];
-				$xmlCitation = "<p><span><a href=\"$licenseURL\" target=\"_blank\">$title</a></span> - <span><a href=\"$shortLicenseURL\" target=\"_blank\">$shortLicense</a></span> - <span>$author</span></p>";
-				print "<div class='result-entry' data-ipid='{$entry['human-url']}' data-a='$author'>
-							<h3>$title</h3>
-							<p>$author</p>
-							<p>$license</p>
+				$xmlCitation = "<p>$title - <a href=\"$shortLicenseURL\" target=\"_blank\">$shortLicense</a> - $author</p>";
+				print "<div class='result-entry' data-ipid='{$entry['human-url']}' data-a='$author' data-category='{$entry['worktypegroup']['code']}'>
+							<h4>$title</h4>
+							<p>$author - $license</p>
 							<button>Attribution</button>
 							<div class='citation'>
 							<input type='text' class='citationCopyText' value='{$xmlCitation}' readonly='readonly'>
@@ -67,24 +65,8 @@ function showSearchWorks($searchResults) {
 		echo "no results";
 	}
 
-	// debug($results);
-	// echo $entries[0]['title'];
-	// echo $entries['listpage']['list'][0]['title'];
-	// if($searchResults && $searchResults[0]recordtotal) {
-	// 	// msg("Total pages: ".$searchResults->pagetotal);
-	// 	// msg("Total results: ".$searchResults->recordtotal);
-	// 	foreach($searchResults->list->work as $work) {
-	// 		echo $searchResults;
-	// 		// $workUrl = $work->{'human-url'};
-	// 		// $thumbnail = $work->thumbnail;
-	// 		// msg("<a href=\"$workUrl\"><img src=\"$thumbnail\" title=\"".$work->title."\" align=\"top\"></a> <a href=\"$workUrl\">".$work->title."</a>");
-	// 	}
-	// } else {
-	// 	msg("No search results available");
-	// }
 }
 
-$query = $_GET['search-keywords'];
 
 
 //Search by passed query:

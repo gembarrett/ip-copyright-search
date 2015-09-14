@@ -1,13 +1,16 @@
 <html>
 <head>
   <link href='main.min.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="main.min.js"></script>
 </head>
 <body>
   <div id="main-content">
+    <header>
   <img src="ipicon.svg"><h1>IPropSearch</h1>
   <h2>A search engine for finding and retrieving information about intellectual property</h2>
+  </header>
   <form method='GET'>
         <div id="search-field">
           <input type='text' name='search-keywords' size='30'
@@ -20,16 +23,18 @@
             <label>SafeCreative</label>
           </div>
           <div class="criteria">
-            <input type="checkbox" name="worldCat" checked=checked <?php if(isset($_GET['worldCat'])) echo "checked='checked'"; ?> />
+            <input type="checkbox" name="worldCat" <?php if(isset($_GET['worldCat'])) echo "checked='checked'"; ?> />
             <label>OCLC</label>
           </div>
         </div>
   </form>
   <?php 
   if (isset($_GET['safeCreative'])) {
+    echo "<h3>Results from Safe Creative for {$_GET['search-keywords']}</h3>";
     include("SafeCreativeAPI.search.php");
   }
   if (isset($_GET['worldCat'])) {
+    echo "<h3>Results from the OCLC for {$_GET['search-keywords']}</h3>";
     include("WorldCatAPI.search.php");
   }
   ?>

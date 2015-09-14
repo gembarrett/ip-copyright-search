@@ -2,8 +2,12 @@ body {
   font-family: Helvetica, sans-serif;
   margin: 1em 0;
   a {
-    color:green;
+    color:rgb(17, 85, 204);
   }
+}
+
+input, button {
+  outline:none;
 }
 
 div {
@@ -13,6 +17,13 @@ div {
   }
   &.citation {
     display:none;
+    clear:both;
+    input {
+      background-color: transparent;
+      overflow-x: scroll;
+      border:lightgrey 1px solid;
+      padding:5px;
+    }
   }
 }
 .criteria {
@@ -25,6 +36,72 @@ h1 {
 h2 {
   text-align: center;
   margin:0 auto;
+}
+h3 {
+  clear:both;
+  border-top:lightgrey 1px solid;
+  padding:1em;
+  margin:0;
+}
+h4 {
+  margin:0.5em 0;
+}
+.result-entry {
+  background-color:rgba(0,0,0,0.05);
+  padding:1em;
+  position:relative;
+  padding-left: 5em;
+  > button {
+    margin-bottom:0.5em;
+  }
+  p {
+    float:left;
+  }
+  &[data-category='Literary']:after {
+    content: "\f02d"; 
+    font-family: FontAwesome;
+    position: absolute;
+    font-size: 3em;
+    color: lightblue;
+    top: 0.5em;
+    left: 0.5em;
+  }
+  &[data-category='Audio']:after {
+    content: "\f028"; 
+    font-family: FontAwesome;
+    position: absolute;
+    font-size: 3em;
+    color: mediumpurple;
+    top: 0.5em;
+    left: 0.5em;
+  }
+  &[data-category='Design']:after {
+    content: "\f040"; 
+    font-family: FontAwesome;
+    position: absolute;
+    font-size: 3em;
+    color: darkseagreen;
+    top: 0.5em;
+    left: 0.5em;
+  }
+  &[data-category='AV']:after {
+    content: "\f03d"; 
+    font-family: FontAwesome;
+    position: absolute;
+    font-size: 3em;
+    color: lightcoral;
+    top: 0.5em;
+    left: 0.5em;
+  }
+  &[data-category='Artistic']:after {
+    content: "\f1fc"; 
+    font-family: FontAwesome;
+    position: absolute;
+    font-size: 3em;
+    color: khaki;
+    top: 0.5em;
+    left: 0.5em;
+  }
 }
 #main-content {
   margin:0 auto;
@@ -54,17 +131,20 @@ form {
     }
     button {
       width:24%;
-      background-color: white;
-      cursor: pointer;
-      &:hover {
-        background-color: lightgrey;
-      }
     }
-    input, button {
-      height:3em;
-      border:lightgrey 1px solid;
-      padding:5px;
-    }
+  }
+}
+input[type=text], button {
+  height:3em;
+  padding:5px;
+  border:lightgrey 1px solid;
+}
+button {
+  background-color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: lightgrey;
+    cursor: pointer;
   }
 }
 footer {
@@ -81,6 +161,20 @@ footer {
     display:block;
   }
 }
+
+@media (min-width:769px) {
+  .citation {
+    input {
+      width:89%;
+    }
+    button {
+      width:10%;
+    }
+  }
+  .result-entry button {
+    width:10%;
+  }
+}
 @media (max-width:768px) {
   #main-content {
     width:85%;
@@ -88,10 +182,24 @@ footer {
       width:15%;
     }
   }
+  .result-entry button {
+    width:27%;
+  }
+  .result-entry p {
+    font-size:0.75em;
+  }
   h1 {
     font-size: 1.2em;
   }
   h2 {
     font-size:1em;
+  }
+  .citation {
+    input {
+      width:72%;
+    }
+    button {
+      width:27%;;
+    }    
   }
 }
