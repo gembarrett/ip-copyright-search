@@ -7,8 +7,17 @@
 <body>
   <form action='search.php' method='GET'>
         <input type='text' name='search-keywords' size='30'
-                value='<?php echo $_GET['search-keywords']; ?>' /> <input type='submit'
-                value='search' />
+                value='<?php echo $_GET['search-keywords']; ?>' /> 
+        <input type='submit' value='search' />
+        
+        <div class="criteria">
+          <input type="checkbox" name="safeCreative" />
+          <label>Search SafeCreative</label>
+        </div>
+        <div class="criteria">
+          <input type="checkbox" name="worldCat" />
+          <label>Search OCLC</label>
+        </div>
   </form>
 </body>
 </html>

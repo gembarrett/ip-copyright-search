@@ -33,7 +33,7 @@ foreach($array['entry'] AS $entry) {
   $worldcatCatalogNo = $IPid[4];
   $xmlCitation = file_get_contents("http://www.worldcat.org/webservices/catalog/content/citations/{$worldcatCatalogNo}?wskey={$worldcatKey}");
   // print out the name and summary
-  echo "<div data-ipid='{$IPid[4]}' data-a='{$author}'>
+  print "<div data-ipid='{$IPid[4]}' data-a='{$author}'>
         <h3>$title</h3>
         </h3>
         <p>$author</p>

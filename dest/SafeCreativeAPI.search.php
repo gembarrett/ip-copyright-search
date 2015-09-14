@@ -22,7 +22,6 @@
 
 include("SafeCreativeAPI.inc.php");
 
-define("DEBUG",false);
 
 function showSearchWorks($searchResults) {
 	$array = json_decode($searchResults,TRUE);
@@ -35,7 +34,7 @@ function showSearchWorks($searchResults) {
 									<p>{$entry['license']['name']}</p></a>";
 			if(!($entry['authors'][0]['name'])) {
 				$rightsHolder = $entry['rights-holders'][0]['name'];
-				echo "<div data-ipid='{$entry['human-url']}' data-rh='$rightsHolder'>
+				print "<div data-ipid='{$entry['human-url']}' data-rh='$rightsHolder'>
 							<h3>$title</h3>
 							<p>$rightsHolder</p>
 							<p>$license</p>
@@ -44,7 +43,7 @@ function showSearchWorks($searchResults) {
 							</div>";				
 			} else {
 				$author = $entry['authors'][0]['name'];
-				echo "<div data-ipid='{$entry['human-url']}' data-a='$author'>
+				print "<div data-ipid='{$entry['human-url']}' data-a='$author'>
 							<h3>$title</h3>
 							<p>$author</p>
 							<p>$license</p>

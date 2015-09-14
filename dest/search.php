@@ -1,7 +1,3 @@
-<?php 
-include("SafeCreativeAPI.search.php");
-include("WorldCatAPI.search.php");
-?>
 <html>
 <head>
   <link href='main.min.css' rel='stylesheet' />
@@ -13,6 +9,23 @@ include("WorldCatAPI.search.php");
         <input type='text' name='search-keywords' size='30'
                 value='<?php echo $_GET['search-keywords']; ?>' /> <input type='submit'
                 value='search' />
+        <div class="criteria">
+          <input type="checkbox" name="safeCreative" />
+          <label>Search SafeCreative</label>
+        </div>
+        <div class="criteria">
+          <input type="checkbox" name="worldCat" />
+          <label>Search OCLC</label>
+        </div>
   </form>
+  <?php 
+  if (isset($_GET['safeCreative'])) {
+    include("SafeCreativeAPI.search.php");
+  }
+  if (isset($_GET['worldCat'])) {
+    include("WorldCatAPI.search.php");
+  }
+  ?>
+
 </body>
 </html>
