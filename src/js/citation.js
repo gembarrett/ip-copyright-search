@@ -1,6 +1,17 @@
-// when you click on a citation button
-// close any other citation views
-// show an overlay or dropdown div
+$(document).ready(function(){
+  // when you click on a citation button
+  $('div > button').click(function() {
+    var parentTag = $( this ).parent();
+    console.log(parentTag[0]);
+    // close any other citation views
+    $('.citation').hide();
+    // show an overlay or dropdown div
+    var overlay = document.createElement('div');
+    overlay.addClass('citation-overlay');
+    var overlayContent = document.createTextNode('<p>');
+    
+  });
+});
 // which holds the citation information
 // either generated from data attributes
 // or requested via the api

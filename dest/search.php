@@ -4,7 +4,9 @@ include("WorldCatAPI.search.php");
 ?>
 <html>
 <head>
-  <link href='main.css' rel='stylesheet' />
+  <link href='main.min.css' rel='stylesheet' />
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="main.min.js"></script>
 </head>
 <body>
   <form action='search.php' method='GET'>
