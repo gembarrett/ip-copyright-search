@@ -10,8 +10,8 @@ div {
   button {
     float:right;
   }
-  .citation {
-    display:none
+  &.citation {
+    display:none;
   }
 }
 

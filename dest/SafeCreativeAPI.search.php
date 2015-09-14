@@ -44,6 +44,7 @@ function showSearchWorks($searchResults) {
 							<h3>$title</h3>
 							<p>$author</p>
 							<button>Citation</button>
+							<div class='citation'></div>
 							</div>";
 			}
 		}

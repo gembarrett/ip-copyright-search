@@ -40,8 +40,8 @@ foreach($array['entry'] AS $entry) {
         <p>$author</p>
         <p>{$entry['summary']}</p>
         <button>Citation</button>
-        </div>
-        <div class='citation'>{$xmlCitation}</div>";
+        <div class='citation'>{$xmlCitation}</div>
+        </div>";
 }
 
 ?> 
