@@ -13,6 +13,4 @@ To do:
 - [x] implement citation creation and copying for WorldCat API
 - [ ] write explanation of project
 - [ ] styling for mobile index page
-- [ ] styling for mobile search page
 - [ ] styling for desktop index page
-- [ ] styling for desktop search page
