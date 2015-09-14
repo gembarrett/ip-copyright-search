@@ -11,15 +11,27 @@ module.exports = function(grunt) {
           }
         }
     },    
+    uglify: {
+      dist: {
+        options: {
+          sourceMap: true,
+          sourceMapName: 'dest/main.min.map'
+        },
+        files: {
+          'dest/main.min.js':['src/js/*.js']
+        }
+      }
+    },
     watch: {
-      files: ['src/scss/*.scss'],
-      tasks: ['sass']
+      files: ['src/scss/*.scss', 'src/js/*.js'],
+      tasks: ['sass', 'uglify']
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('default', ['sass', 'watch']);
+  grunt.registerTask('default', ['sass', 'uglify', 'watch']);
 
 };
