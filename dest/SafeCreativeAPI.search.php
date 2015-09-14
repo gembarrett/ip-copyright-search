@@ -26,11 +26,26 @@ define("DEBUG",false);
 
 function showSearchWorks($searchResults) {
 	$array = json_decode($searchResults,TRUE);
-
+	echo "<h2>Results from Safe Creative</h2>";
 	if($array['listpage']['recordtotal'] != 0) {
 		$entries = $array['listpage']['list'];
 		foreach ($entries AS $entry) {
-			echo "{$entry['title']}<br />";
+			$title = $entry['title'];
+			if(!($entry['authors'][0]['name'])) {
+				$rightsHolder = $entry['rights-holders'][0]['name'];
+				echo "<div data-ipid='{$entry['human-url']}' data-title='$title' data-rh='$rightsHolder'>
+							<h3>$title</h3>
+							<p>$rightsHolder</p>
+							<button>Citation</button>
+							</div>";				
+			} else {
+				$author = $entry['authors'][0]['name'];
+				echo "<div data-ipid='{$entry['human-url']}' data-title='$title' data-a='$author'>
+							<h3>$title</h3>
+							<p>$author</p>
+							<button>Citation</button>
+							</div>";
+			}
 		}
 	} else {
 		echo "no results";

@@ -24,18 +24,19 @@ $array = json_decode($json,TRUE);
 
 // grab the only bit we're interested in
 $entries = $array['entry'];
-
+echo "<h2>Results from the OCLC</h2>";
 // for each bit of the thing we're interested in
 foreach($array['entry'] AS $entry) {
   // grab the entry's id in case citation needed
-  $stuff = explode('/', $entry['id']);
-  echo $stuff[4];
+  $IPid = explode('/', $entry['id']);
+  $title = $entry['title'];
+  $author = $entry['author']['name'];
   // print out the name and summary
-  echo "<h3>
-        {$entry['title']} - 
-        {$entry['author']['name']}
+  echo "<div data-ipid='{$IPid[4]}' data-title='$title'>
+        <h3>$title</h3>
         </h3>
-        <p>{$entry['summary']}</p>";
+        <p>$author</p>
+        <p>{$entry['summary']}</p></div>";
 }
 
 ?> 
