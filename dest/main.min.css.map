@@ -3,5 +3,5 @@
 "mappings": "AAAA,IAAK,CACH,WAAW,CAAE,qBAAqB,CAClC,MAAE,CACA,KAAK,CAAC,KAAK,CAIf,GAAI,CACF,QAAQ,CAAC,IAAI,CACb,UAAO,CACL,KAAK,CAAC,KAAK",
 "sources": ["../src/scss/main.scss"],
 "names": [],
-"file": "main.css"
+"file": "main.min.css"
 }
