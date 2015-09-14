@@ -5,18 +5,24 @@
   <script src="main.min.js"></script>
 </head>
 <body>
+  <div id="content">
+  <img src="ipicon.svg"><h1>IPropSearch</h1>
+  <h2>A search engine for finding and retrieving information about intellectual property</h2>
   <form method='GET'>
-        <input type='text' name='search-keywords' size='30'
-                value='<?php echo $_GET['search-keywords']; ?>' /> 
-        <input type='submit' value='search' />
-        
-        <div class="criteria">
-          <input type="checkbox" name="safeCreative" <?php if(isset($_GET['safeCreative'])) echo "checked='checked'"; ?> />
-          <label>Search SafeCreative</label>
+        <div id="search-field">
+          <input type='text' name='search-keywords' size='30'
+                  value='<?php echo $_GET['search-keywords']; ?>' /> 
+          <button type='submit' />Search</button>
         </div>
-        <div class="criteria">
-          <input type="checkbox" name="worldCat" <?php if(isset($_GET['worldCat'])) echo "checked='checked'"; ?> />
-          <label>Search OCLC</label>
+        <div id="checkboxes">
+          <div class="criteria">
+            <input type="checkbox" name="safeCreative" checked=checked <?php if(isset($_GET['safeCreative'])) echo "checked='checked'"; ?> />
+            <label>SafeCreative</label>
+          </div>
+          <div class="criteria">
+            <input type="checkbox" name="worldCat" checked=checked <?php if(isset($_GET['worldCat'])) echo "checked='checked'"; ?> />
+            <label>OCLU</label>
+          </div>
         </div>
   </form>
   <?php 
@@ -27,6 +33,6 @@
     include("WorldCatAPI.search.php");
   }
   ?>
-
+</div>
 </body>
 </html>
