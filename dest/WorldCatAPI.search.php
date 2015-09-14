@@ -3,7 +3,7 @@ $query = $_GET['search-keywords'];
 $urlReadyQuery = urlencode($query);
 // Initialise curl resource
 $curl = curl_init();
-$worldcatKey = 'l45E9GwC2Yex8qKqXdxkNznjn1mVGdG2ZjGLcaGxl9JBGX0AacC2aWmrGLXQkqF0nYvnk0BmVnSOMwUs';
+$worldcatKey = 'uXiClH2ALmhTsW6fGdENAYyHsYeuiK5iVkDpKI11Au11bvJciBOxfaI85EXCiZOo2MrAFwURWcAQhd7J';
 $worldcatCatalogRequest = 'http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q='.$urlReadyQuery.'&wskey='.$worldcatKey;
 
 // set options
@@ -15,6 +15,7 @@ curl_setopt_array($curl, array(
 $resp = curl_exec($curl);
 // Close curl request
 curl_close($curl);
+
 
 // convert xml into json object
 $xml = simplexml_load_string($resp);
@@ -33,13 +34,16 @@ foreach($array['entry'] AS $entry) {
   $worldcatCatalogNo = $IPid[4];
   $xmlCitation = file_get_contents("http://www.worldcat.org/webservices/catalog/content/citations/{$worldcatCatalogNo}?wskey={$worldcatKey}");
   // print out the name and summary
-  print "<div data-ipid='{$IPid[4]}' data-a='{$author}'>
+  print "<div class='result-entry' data-ipid='{$IPid[4]}' data-a='{$author}'>
         <h3>$title</h3>
         </h3>
         <p>$author</p>
         <p>{$entry['summary']}</p>
         <button>Citation</button>
-        <div class='citation'>{$xmlCitation}</div>
+        <div class='citation'>
+        <input type='text' class='citationCopyText' value='{$xmlCitation}' readonly='readonly'>
+        <button>Copy</button>
+        </div>
         </div>";
 }
 

@@ -34,7 +34,7 @@ function showSearchWorks($searchResults) {
 									<p>{$entry['license']['name']}</p></a>";
 			if(!($entry['authors'][0]['name'])) {
 				$rightsHolder = $entry['rights-holders'][0]['name'];
-				print "<div data-ipid='{$entry['human-url']}' data-rh='$rightsHolder'>
+				print "<div class='result-entry' data-ipid='{$entry['human-url']}' data-rh='$rightsHolder'>
 							<h3>$title</h3>
 							<p>$rightsHolder</p>
 							<p>$license</p>
@@ -43,12 +43,14 @@ function showSearchWorks($searchResults) {
 							</div>";				
 			} else {
 				$author = $entry['authors'][0]['name'];
-				print "<div data-ipid='{$entry['human-url']}' data-a='$author'>
+				print "<div class='result-entry' data-ipid='{$entry['human-url']}' data-a='$author'>
 							<h3>$title</h3>
 							<p>$author</p>
 							<p>$license</p>
 							<button>Citation</button>
-							<div class='citation'></div>
+							<div class='citation'>
+							<button>Copy</button>
+							</div>
 							</div>";
 			}
 		}

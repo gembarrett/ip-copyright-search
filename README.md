@@ -9,8 +9,8 @@ This project will create a search interface making use of various APIs in order 
 To do:
 - [x] implement SafeCreative API searching
 - [x] implement WorldCat API searching
-- [ ] implement citation searching for SafeCreative API
-- [ ] implement citation searching for WorldCat API
+- [ ] implement citation creation and copying for SafeCreative API
+- [x] implement citation creation and copying for WorldCat API
 - [ ] implement third API searching
 - [ ] write explanation of project
 - [ ] styling for mobile index page
