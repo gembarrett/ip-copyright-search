@@ -11,6 +11,6 @@ To do:
 - [x] implement WorldCat API searching
 - [x] implement citation creation and copying for SafeCreative API
 - [x] implement citation creation and copying for WorldCat API
-- [ ] write explanation of project
 - [ ] styling for mobile index page
 - [ ] styling for desktop index page
+- [ ] write explanation of project
