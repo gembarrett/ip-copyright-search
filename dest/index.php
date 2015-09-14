@@ -5,7 +5,7 @@
   <script src="main.min.js"></script>
 </head>
 <body>
-  <div id="content">
+  <div id="main-content">
   <img src="ipicon.svg"><h1>IPropSearch</h1>
   <h2>A search engine for finding and retrieving information about intellectual property</h2>
   <form method='GET'>
@@ -21,7 +21,7 @@
           </div>
           <div class="criteria">
             <input type="checkbox" name="worldCat" checked=checked <?php if(isset($_GET['worldCat'])) echo "checked='checked'"; ?> />
-            <label>OCLU</label>
+            <label>OCLC</label>
           </div>
         </div>
   </form>
@@ -34,5 +34,10 @@
   }
   ?>
 </div>
+<footer>
+  <div id="footer-content">
+    <p>This is a final project by <a href="http://www.gembarrett.com" target="_blank">Gem Barrett</a> for her <a href="https://msds.open.ac.uk/students/study/undergraduate/qualification/b67" target="_blank">BSc(Hons) Computing, IT and Design</a> studies. All code is available at <a href="https://github.com/gembarrett/ip-copyright-search" target="_blank">GitHub</a> under an <a href="http://choosealicense.com/licenses/mit/" target="_blank">MIT license</a>. Huge thanks to <a href="https://www.safecreative.org/" target="_blank">SafeCreative</a> and the <a href="https://www.oclc.org" target="_blank">Online Computer Library Center (OCLC)</a> for their assistance during the development of this project and for sharing data through their public APIs.</p>
+  </div>
+</footer>
 </body>
 </html>

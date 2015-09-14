@@ -1,5 +1,6 @@
 body {
   font-family: Helvetica, sans-serif;
+  margin: 1em 0;
   a {
     color:green;
   }
@@ -25,10 +26,11 @@ h2 {
   text-align: center;
   margin:0 auto;
 }
-#content {
+#main-content {
   margin:0 auto;
   width:75%;
   max-width: 675px;
+  margin-bottom:200px;
   img {
     width:75px;
     margin:0 auto;
@@ -61,11 +63,26 @@ form {
     input, button {
       height:3em;
       border:lightgrey 1px solid;
+      padding:5px;
     }
   }
 }
+footer {
+  width:100%;
+  position:fixed;
+  bottom:0;
+  border-top:lightgrey 1px solid;
+  font-size: 0.75em;
+  background-color:white;
+  #footer-content {
+    width:90%;
+    max-height: 200px;
+    margin:0 auto;
+    display:block;
+  }
+}
 @media (max-width:768px) {
-  #content {
+  #main-content {
     width:85%;
     img {
       width:15%;
