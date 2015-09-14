@@ -30,25 +30,34 @@ function showSearchWorks($searchResults) {
 		$entries = $array['listpage']['list'];
 		foreach ($entries AS $entry) {
 			$title = $entry['title'];
-			$license = "<a href='{$entry['license']['code']}'>
+			$license = "<a href='{$entry['license']['human-url']}'>
 									<p>{$entry['license']['name']}</p></a>";
+			$licenseURL = $entry['human-url'];
+			$shortLicenseURL = $entry['license']['human-url'];
+			$shortLicense = $entry['license']['shortname'];
 			if(!($entry['authors'][0]['name'])) {
 				$rightsHolder = $entry['rights-holders'][0]['name'];
+				$xmlCitation = "<p><span><a href=\"$licenseURL\" target=\"_blank\">$title</a></span> - <span><a href=\"$shortLicenseURL\" target=\"_blank\">$shortLicense</a></span> - <span>$rightsHolder</span></p>";
 				print "<div class='result-entry' data-ipid='{$entry['human-url']}' data-rh='$rightsHolder'>
 							<h3>$title</h3>
 							<p>$rightsHolder</p>
 							<p>$license</p>
-							<button>Citation</button>
-							<div class='citation'></div>
+							<button>Attribution</button>
+							<div class='citation'>
+							<input type='text' class='citationCopyText' value='{$xmlCitation}' readonly='readonly'>
+							<button>Copy</button>
+							</div>
 							</div>";				
 			} else {
 				$author = $entry['authors'][0]['name'];
+				$xmlCitation = "<p><span><a href=\"$licenseURL\" target=\"_blank\">$title</a></span> - <span><a href=\"$shortLicenseURL\" target=\"_blank\">$shortLicense</a></span> - <span>$author</span></p>";
 				print "<div class='result-entry' data-ipid='{$entry['human-url']}' data-a='$author'>
 							<h3>$title</h3>
 							<p>$author</p>
 							<p>$license</p>
-							<button>Citation</button>
+							<button>Attribution</button>
 							<div class='citation'>
+							<input type='text' class='citationCopyText' value='{$xmlCitation}' readonly='readonly'>
 							<button>Copy</button>
 							</div>
 							</div>";
@@ -88,4 +97,4 @@ $params = array(
 $results = search($params);
 showSearchWorks($results);
 
-
+?>

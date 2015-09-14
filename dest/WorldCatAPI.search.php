@@ -3,7 +3,7 @@ $query = $_GET['search-keywords'];
 $urlReadyQuery = urlencode($query);
 // Initialise curl resource
 $curl = curl_init();
-$worldcatKey = 'uXiClH2ALmhTsW6fGdENAYyHsYeuiK5iVkDpKI11Au11bvJciBOxfaI85EXCiZOo2MrAFwURWcAQhd7J';
+$worldcatKey = 'RLjfLCzcrl6putyN1VWd17wSfX3r53vWnIhNyqkbTZwjtcrlv6oiwnlE9LEdTGsBezlaiFFeTm6omXeD';
 $worldcatCatalogRequest = 'http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q='.$urlReadyQuery.'&wskey='.$worldcatKey;
 
 // set options
@@ -38,7 +38,6 @@ foreach($array['entry'] AS $entry) {
         <h3>$title</h3>
         </h3>
         <p>$author</p>
-        <p>{$entry['summary']}</p>
         <button>Citation</button>
         <div class='citation'>
         <input type='text' class='citationCopyText' value='{$xmlCitation}' readonly='readonly'>
