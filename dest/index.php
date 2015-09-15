@@ -38,7 +38,9 @@
     echo "<h3>Results from the OCLC for {$_GET['search-keywords']}</h3>";
     include("WorldCatAPI.search.php");
   }
-  echo '<p>Please note that this search is not exhaustive of all copyright and intellectual property registries and that if a work is not returned as a result then more research should be carried out before claiming or using it.</p>';
+  if (isset($_GET['safeCreative']) || isset($_GET['worldCat'])) {
+    echo '<p>Please note that this search is not exhaustive of all copyright and intellectual property registries and that if a work is not returned as a result then more research should be carried out before claiming or using it.</p>';
+  }
   ?>
 </div>
 <footer>
