@@ -163,16 +163,13 @@ footer {
 }
 
 @media (min-width:769px) {
-  .citation {
-    input {
-      width:89%;
+  .citation, .result-entry {
+    input, p {
+      width:85%;
     }
     button {
-      width:10%;
+      min-width:12%;
     }
-  }
-  .result-entry button {
-    width:10%;
   }
 }
 @media (max-width:768px) {
@@ -187,6 +184,8 @@ footer {
   }
   .result-entry p {
     font-size:0.75em;
+    max-width: 72%;
+    margin-top:0;
   }
   h1 {
     font-size: 1.2em;
