@@ -2,6 +2,7 @@
 <head>
   <link href='main.min.css' rel='stylesheet' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="main.min.js"></script>
 </head>
