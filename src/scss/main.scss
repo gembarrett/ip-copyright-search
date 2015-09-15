@@ -3,6 +3,7 @@ body {
   margin: 1em 0;
   a {
     color:rgb(17, 85, 204);
+    text-decoration: none;
   }
 }
 
@@ -166,6 +167,7 @@ footer {
   .citation, .result-entry {
     input, p {
       width:85%;
+      margin-top: 0;
     }
     button {
       min-width:12%;
